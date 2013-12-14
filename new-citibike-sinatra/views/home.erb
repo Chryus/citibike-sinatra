@@ -1,0 +1,7 @@
+<h1>THE DATA</h1>
+<p><% @data.each do |station| %>
+	<%= "#{station["name"]}:" %>
+	<%= "#{station["lat"]}," %>
+	<%= "#{station["lng"]}." %>
+	<% end %>
+</p>

@@ -1,7 +1,6 @@
 require 'rubygems'
 require 'bundler'
 require "sinatra/reloader"
-require "json"
 
 Bundler.require
 
@@ -10,7 +9,7 @@ Dir.glob('./lib/*.rb') do |model|
 end
 
 module Citibike
-        class App < Sinatra::Application
+	class App < Sinatra::Application
     configure :development do
       register Sinatra::Reloader
     end
@@ -24,16 +23,15 @@ module Citibike
       erb :home
     end
 
-    get'/form' do
+    get '/form' do
       erb :form
     end
 
     post '/map' do
-      @start_station = params["start"]
-      @end_station = params["end"]
+      @results_start = params["start"]
+      @results_end = params["end"]
       erb :map
     end
-
 
   end
 end

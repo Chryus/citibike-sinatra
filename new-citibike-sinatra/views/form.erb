@@ -1,0 +1,23 @@
+<h1>Map my route!</h1>
+<p>Start:</p>
+<!-- #the action of the form takes us to a route -->
+<form action="/map" method="POST">
+	<select name="start">
+		<% @data.each do |station| %>
+		<option value="<%= [station["lat"]/1000000.to_f, station["lng"]/1000000.to_f] %>">
+				<%= station["name"] %>
+			<% end %>
+		</option>
+  </select>
+</br>
+<p>End:</p>
+  <select name="end">
+		<% @data.each do |station| %>
+		<option value="<%= [station["lat"]/1000000.to_f, station["lng"]/1000000.to_f] %>">
+				<%= station["name"] %>
+			<% end %>
+		</option>
+  </select>
+</br>
+	<button type="submit">Submit</button>   
+</form>
